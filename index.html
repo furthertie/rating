@@ -33,4 +33,57 @@
 
     .half-star:hover {
       color: gold;
-      transfo
+      transform: scale(1.2);
+    }
+
+    .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      width: max-content;
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 6px 10px;
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      z-index: 1;
+      transition: opacity 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .half-star:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: #222 transparent transparent transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="rating">
+    <span class="half-star">★<div class="tooltip">0.5 – Barely watchable</div></span>
+    <span class="half-star">★<div class="tooltip">1.0 – Weak, but finished it</div></span>
+    <span class="half-star">★<div class="tooltip">1.5 – Some minor merit</div></span>
+    <span class="half-star">★<div class="tooltip">2.0 – Meh, not for me</div></span>
+    <span class="half-star">★<div class="tooltip">2.5 – Had its moments</div></span>
+    <span class="half-star">★<div class="tooltip">3.0 – Solid, not memorable</div></span>
+    <span class="half-star">★<div class="tooltip">3.5 – Very good</div></span>
+    <span class="half-star">★<div class="tooltip">4.0 – Excellent, stuck with me</div></span>
+    <span class="half-star">★<div class="tooltip">4.5 – Nearly perfect</div></span>
+    <span class="half-star">★<div class="tooltip">5.0 – Personal masterpiece</div></span>
+  </div>
+</body>
+</html>
