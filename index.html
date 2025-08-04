@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Star Rating Scale</title>
   <style>
     body {
@@ -17,92 +17,36 @@
 
     .rating {
       display: flex;
-      gap: 0;
       position: relative;
+    }
+
+    .star-container {
+      position: relative;
+      font-size: 64px;
+      cursor: default;
     }
 
     .star {
-      position: relative;
-      width: 64px;
-      height: 64px;
-    }
-
-    .half {
-      position: absolute;
-      width: 50%;
-      height: 100%;
-      top: 0;
-      overflow: hidden;
-      font-size: 64px;
       color: #444;
-      transition: color 0.2s ease, transform 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: auto;
     }
 
-    .half:hover {
-      color: gold;
-      transform: scale(1.2);
+    .hover-zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
       z-index: 2;
     }
 
-    .left {
+    .hover-zone.left {
       left: 0;
-      clip-path: inset(0 50% 0 0);
     }
 
-    .right {
+    .hover-zone.right {
       right: 0;
-      clip-path: inset(0 0 0 50%);
     }
 
-    .tooltip {
-      position: absolute;
-      bottom: 110%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #222;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 4px;
-      white-space: nowrap;
-      font-size: 14px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.2s;
-      z-index: 10;
-    }
+    .hover-zone::before {
+      content: "★";
+      position: absol
 
-    .half:hover .tooltip {
-      opacity: 1;
-      visibility: visible;
-    }
-  </style>
-</head>
-<body>
-  <div class="rating">
-    <div class="star">
-      <span class="half left">★<div class="tooltip">0.5 – Barely watchable</div></span>
-      <span class="half right">★<div class="tooltip">1.0 – Weak, but finished it</div></span>
-    </div>
-    <div class="star">
-      <span class="half left">★<div class="tooltip">1.5 – Some minor merit</div></span>
-      <span class="half right">★<div class="tooltip">2.0 – Meh, not for me</div></span>
-    </div>
-    <div class="star">
-      <span class="half left">★<div class="tooltip">2.5 – Had its moments</div></span>
-      <span class="half right">★<div class="tooltip">3.0 – Solid, not memorable</div></span>
-    </div>
-    <div class="star">
-      <span class="half left">★<div class="tooltip">3.5 – Very good</div></span>
-      <span class="half right">★<div class="tooltip">4.0 – Excellent, stuck with me</div></span>
-    </div>
-    <div class="star">
-      <span class="half left">★<div class="tooltip">4.5 – Nearly perfect</div></span>
-      <span class="half right">★<div class="tooltip">5.0 – Personal masterpiece</div></span>
-    </div>
-  </div>
-</body>
-</html>
