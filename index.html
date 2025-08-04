@@ -89,6 +89,30 @@
     .hover-zone:hover .tooltip {
       opacity: 1;
     }
+    @media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .star-container {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .star {
+    font-size: 3rem; /* Bigger stars */
+  }
+
+  .tooltip {
+    font-size: 0.9rem; /* Bigger tooltip text */
+    white-space: normal; /* Allow tooltip to wrap if needed */
+    max-width: 200px;
+    padding: 0.5rem;
+  }
+}
+
   </style>
 </head>
 <body>
