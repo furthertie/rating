@@ -13,17 +13,23 @@
       align-items: center;
       justify-content: center;
       font-family: sans-serif;
+      padding: 1rem;
     }
 
     .rating {
       display: flex;
-      position: relative;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
     }
 
     .star-container {
       position: relative;
       font-size: 128px;
       cursor: default;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .star {
@@ -84,35 +90,36 @@
       white-space: nowrap;
       transition: opacity 0.2s ease;
       pointer-events: none;
+      text-align: center;
+      max-width: 250px;
     }
 
     .hover-zone:hover .tooltip {
       opacity: 1;
     }
+
     @media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
+      .rating {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
 
-  .star-container {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 2rem;
-  }
+      .star-container {
+        font-size: 96px;
+      }
 
-  .star {
-    font-size: 3rem; /* Bigger stars */
-  }
+      .hover-zone::before {
+        font-size: 96px;
+      }
 
-  .tooltip {
-    font-size: 0.9rem; /* Bigger tooltip text */
-    white-space: normal; /* Allow tooltip to wrap if needed */
-    max-width: 200px;
-    padding: 0.5rem;
-  }
-}
-
+      .tooltip {
+        font-size: 16px;
+        max-width: 80vw;
+        white-space: normal;
+        line-height: 1.3;
+      }
+    }
   </style>
 </head>
 <body>
@@ -120,7 +127,7 @@
     <div class="star-container">
       <span class="star">★</span>
       <div class="hover-zone left" data-value="0.5">
-        <div class="tooltip">0.5 – i wish i didnt watch this</div>
+        <div class="tooltip">0.5 – i wish i didn’t watch this</div>
       </div>
       <div class="hover-zone right" data-value="1.0">
         <div class="tooltip">1.0 – genuinely disliked it, struggled to keep watching</div>
@@ -132,7 +139,7 @@
         <div class="tooltip">1.5 – watchable but can feel like a chore</div>
       </div>
       <div class="hover-zone right" data-value="2.0">
-        <div class="tooltip">2.0 – something you can watch when you are bored but thats about it</div>
+        <div class="tooltip">2.0 – something you can watch when you are bored but that's about it</div>
       </div>
     </div>
     <div class="star-container">
@@ -141,7 +148,7 @@
         <div class="tooltip">2.5 – enjoyable or had redeeming elements, but i felt little or nothing once it ended</div>
       </div>
       <div class="hover-zone right" data-value="3.0">
-        <div class="tooltip">3.0 –  a good time. easy to enjoy and i liked it, but emotionally shallow or forgettable in the long run</div>
+        <div class="tooltip">3.0 – a good time. easy to enjoy and i liked it, but emotionally shallow or forgettable in the long run</div>
       </div>
     </div>
     <div class="star-container">
