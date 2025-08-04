@@ -51,9 +51,9 @@
       position: absolute;
       top: 0;
       font-size: 64px;
-      color: gold;
+      color: transparent;
       pointer-events: none;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, color 0.2s ease;
     }
 
     .hover-zone.left::before {
@@ -67,6 +67,7 @@
     }
 
     .hover-zone:hover::before {
+      color: gold;
       transform: scale(1.2);
     }
 
