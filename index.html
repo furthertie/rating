@@ -5,115 +5,114 @@
   <title>Star Rating Scale</title>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: sans-serif;
-      background: #121212;
-      color: #e0e0e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-    .container {
-      padding: 1rem;
-      max-width: 100%;
-    }
+.container {
+  padding: 1rem;
+  max-width: 100%;
+}
 
-    .rating {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-    }
+.rating {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
 
-    .star-container {
-      position: relative;
-      font-size: 24vw;
-      max-width: 20vw;
-      flex: 1 1 auto;
-    }
+.star-container {
+  position: relative;
+  font-size: 24vw;
+  max-width: 20vw;
+  flex: 1 1 auto;
+}
 
-    .star {
-      color: #444;
-      font-size: inherit;
-    }
+.star {
+  color: #444;
+  font-size: inherit;
+}
 
-    .hover-zone {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 50%;
-      z-index: 2;
-    }
+.hover-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 2;
+}
 
-    .hover-zone.left {
-      left: 0;
-    }
+.hover-zone.left {
+  left: 0;
+}
 
-    .hover-zone.right {
-      right: 0;
-    }
+.hover-zone.right {
+  right: 0;
+}
 
-    .hover-zone::before {
-      content: "★";
-      position: absolute;
-      top: 0;
-      font-size: inherit;
-      color: transparent;
-      pointer-events: none;
-      transition: color 0.2s ease;
-    }
+.hover-zone::before {
+  content: "★";
+  position: absolute;
+  top: 0;
+  font-size: inherit;
+  color: transparent;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
 
-    .hover-zone.left::before {
-      left: 0;
-      clip-path: inset(0 50% 0 0);
-    }
+.hover-zone.left::before {
+  left: 0;
+  clip-path: inset(0 50% 0 0);
+}
 
-    .hover-zone.right::before {
-      right: 0;
-      clip-path: inset(0 0 0 50%);
-    }
+.hover-zone.right::before {
+  right: 0;
+  clip-path: inset(0 0 0 50%);
+}
 
-    .hover-zone.highlight::before {
-      color: gold;
-    }
+.hover-zone.highlight::before {
+  color: gold;
+}
 
-    .tooltip {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2c2c2c;
-      color: #f0f0f0;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 4vw;
-      opacity: 0;
-      white-space: normal;
-      transition: opacity 0.2s ease;
-      pointer-events: none;
-      max-width: 80vw;
-      line-height: 1.2;
-    }
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2c2c2c;
+  color: #f0f0f0;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: clamp(14px, 3.5vw, 18px);
+  opacity: 0;
+  white-space: normal;
+  max-width: 260px;
+  line-height: 1.4;
+  text-align: left;
+  box-sizing: border-box;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  word-break: break-word;
+}
 
-    .hover-zone:hover .tooltip {
-      opacity: 1;
-    }
+.hover-zone:hover .tooltip {
+  opacity: 1;
+}
 
-    @media (min-width: 601px) {
-      .star-container {
-        font-size: 96px;
-        max-width: none;
-      }
+@media (min-width: 601px) {
+  .star-container {
+    font-size: 96px;
+    max-width: none;
+  }
+}
 
-      .tooltip {
-        font-size: 14px;
-        max-width: 250px;
-      }
-    }
   </style>
 </head>
 <body>
