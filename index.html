@@ -1,69 +1,105 @@
-<style>
-  .star-rating {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Star Rating Scale</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+    }
 
-  .star {
-    font-size: 32px;
-    color: #ccc;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    position: relative;
-  }
+    .rating-container {
+      display: flex;
+      gap: 10px;
+      position: relative;
+    }
 
-  .star:hover {
-    color: gold;
-    transform: scale(1.2);
-  }
+    .star-wrapper {
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
 
-  .star:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-  }
+    .half {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      top: 0;
+      cursor: pointer;
+      font-size: 64px;
+      color: #444;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .tooltip {
-    visibility: hidden;
-    opacity: 0;
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    border-radius: 4px;
-    padding: 6px;
-    position: absolute;
-    bottom: 130%;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: 14px;
-    transition: opacity 0.3s;
-    z-index: 999;
-  }
+    .half:hover {
+      color: gold;
+      transform: scale(1.2);
+    }
 
-  .tooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #222 transparent transparent transparent;
-  }
-</style>
+    .left {
+      left: 0;
+      clip-path: inset(0 50% 0 0);
+    }
 
-<div class="star-rating">
-  <div class="star">★<div class="tooltip">0.5 — Barely watchable, regretted finishing</div></div>
-  <div class="star">★<div class="tooltip">1.0 — Poor, but had some fragment of value</div></div>
-  <div class="star">★<div class="tooltip">1.5 — Flawed and frustrating</div></div>
-  <div class="star">★<div class="tooltip">2.0 — Meh. Forgettable or uneven</div></div>
-  <div class="star">★<div class="tooltip">2.5 — Some parts worked, but not cohesive</div></div>
-  <div class="star">★<div class="tooltip">3.0 — Solid, good, but not quite meaningful</div></div>
-  <div class="star">★<div class="tooltip">3.5 — Really good, maybe not for everyone</div></div>
-  <div class="star">★<div class="tooltip">4.0 — Excellent. Hit me emotionally or stylistically</div></div>
-  <div class="star">★<div class="tooltip">4.5 — Nearly perfect for me, memorable</div></div>
-  <div class="star">★<div class="tooltip">5.0 — Masterpiece. Deeply personal or transcendent</div></div>
-</div>
+    .right {
+      right: 0;
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      font-size: 14px;
+      transition: opacity 0.3s;
+      z-index: 99;
+    }
+
+    .half:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <div class="rating-container">
+    <div class="star-wrapper">
+      <div class="half left">★<div class="tooltip">0.5 – Barely watchable</div></div>
+      <div class="half right">★<div class="tooltip">1.0 – Weak, but finished it</div></div>
+    </div>
+    <div class="star-wrapper">
+      <div class="half left">★<div class="tooltip">1.5 – Some minor merit</div></div>
+      <div class="half right">★<div class="tooltip">2.0 – Meh, not for me</div></div>
+    </div>
+    <div class="star-wrapper">
+      <div class="half left">★<div class="tooltip">2.5 – Had its moments</div></div>
+      <div class="half right">★<div class="tooltip">3.0 – Solid, not memorable</div></div>
+    </div>
+    <div class="star-wrapper">
+      <div class="half left">★<div class="tooltip">3.5 – Very good</div></div>
+      <div class="half right">★<div class="tooltip">4.0 – Excellent, stuck with me</div></div>
+    </div>
+    <div class="star-wrapper">
+      <div class="half left">★<div class="tooltip">4.5 – Nearly perfect</div></div>
+      <div class="half right">★<div class="tooltip">5.0 – Personal masterpiece</div></div>
+    </div>
+  </div>
+</body>
+</html>
