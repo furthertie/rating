@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Star Rating Scale</title>
+  <title>Star Rating Definitions</title>
   <style>
     body {
       margin: 0;
@@ -17,73 +17,88 @@
 
     .rating {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2px;
+      gap: 16px;
     }
 
-    .half-star {
-      display: inline-block;
-      width: 32px;
-      font-size: 48px;
-      color: #444;
-      cursor: default;
+    .star {
       position: relative;
-      transition: transform 0.2s, color 0.2s;
+      font-size: 64px;
+      color: #444;
     }
 
-    .half-star:hover {
+    .hover-zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      right: 0;
+    }
+
+    .hover-zone:hover ~ .star-icon {
       color: gold;
       transform: scale(1.2);
     }
 
-    .tooltip {
-      visibility: hidden;
-      opacity: 0;
-      width: max-content;
-      background-color: #222;
-      color: #fff;
-      text-align: center;
-      border-radius: 4px;
+    .hover-zone:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: white;
       padding: 6px 10px;
-      position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
+      border-radius: 4px;
       font-size: 14px;
-      z-index: 1;
-      transition: opacity 0.3s ease;
       white-space: nowrap;
-    }
-
-    .half-star:hover .tooltip {
-      visibility: visible;
       opacity: 1;
+      pointer-events: none;
+      z-index: 2;
     }
 
-    .tooltip::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border-width: 6px;
-      border-style: solid;
-      border-color: #222 transparent transparent transparent;
+    .star-icon {
+      transition: color 0.2s ease, transform 0.2s ease;
+      position: relative;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
   <div class="rating">
-    <span class="half-star">★<div class="tooltip">0.5 – Barely watchable</div></span>
-    <span class="half-star">★<div class="tooltip">1.0 – Weak, but finished it</div></span>
-    <span class="half-star">★<div class="tooltip">1.5 – Some minor merit</div></span>
-    <span class="half-star">★<div class="tooltip">2.0 – Meh, not for me</div></span>
-    <span class="half-star">★<div class="tooltip">2.5 – Had its moments</div></span>
-    <span class="half-star">★<div class="tooltip">3.0 – Solid, not memorable</div></span>
-    <span class="half-star">★<div class="tooltip">3.5 – Very good</div></span>
-    <span class="half-star">★<div class="tooltip">4.0 – Excellent, stuck with me</div></span>
-    <span class="half-star">★<div class="tooltip">4.5 – Nearly perfect</div></span>
-    <span class="half-star">★<div class="tooltip">5.0 – Personal masterpiece</div></span>
+    <div class="star">
+      <div class="hover-zone left" data-tooltip="0.5 – Barely watchable"></div>
+      <div class="hover-zone right" data-tooltip="1.0 – Weak, but finished it"></div>
+      <span class="star-icon">★</span>
+    </div>
+    <div class="star">
+      <div class="hover-zone left" data-tooltip="1.5 – Some minor merit"></div>
+      <div class="hover-zone right" data-tooltip="2.0 – Meh, not for me"></div>
+      <span class="star-icon">★</span>
+    </div>
+    <div class="star">
+      <div class="hover-zone left" data-tooltip="2.5 – Had its moments"></div>
+      <div class="hover-zone right" data-tooltip="3.0 – Solid, not memorable"></div>
+      <span class="star-icon">★</span>
+    </div>
+    <div class="star">
+      <div class="hover-zone left" data-tooltip="3.5 – Very good"></div>
+      <div class="hover-zone right" data-tooltip="4.0 – Excellent, stuck with me"></div>
+      <span class="star-icon">★</span>
+    </div>
+    <div class="star">
+      <div class="hover-zone left" data-tooltip="4.5 – Nearly perfect"></div>
+      <div class="hover-zone right" data-tooltip="5.0 – Personal masterpiece"></div>
+      <span class="star-icon">★</span>
+    </div>
   </div>
 </body>
 </html>
+
