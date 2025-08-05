@@ -91,19 +91,19 @@
   color: #f0f0f0;
   padding: 0.6rem 1rem;
   border-radius: 6px;
-  font-size: clamp(14px, 1.5vw, 18px); /* responsive but reasonable size */
+  font-size: clamp(16px, 4vw, 20px); /* bigger and responsive */
   opacity: 0;
-  white-space: normal;  /* allow normal wrapping */
-  max-width: 300px;     /* allow up to 300px wide */
-  min-width: 180px;     /* don’t get narrower than 180px */
+  white-space: nowrap;  /* keep it on one line if possible */
+  max-width: 90vw;      /* but don’t let it go off screen on small devices */
   line-height: 1.4;
   text-align: left;
   box-sizing: border-box;
   transition: opacity 0.2s ease;
   pointer-events: none;
-  word-break: break-word;
+  word-break: normal; /* prevent breaking words */
   z-index: 10;
 }
+
 
 
 .hover-zone:hover .tooltip {
