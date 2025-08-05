@@ -90,25 +90,24 @@
   color: #f0f0f0;
   padding: 0.6rem 1rem;
   border-radius: 6px;
-  font-size: 16px; /* default for desktop */
+  font-size: 16px; /* default desktop */
   opacity: 0;
-  white-space: nowrap;
+  white-space: normal;
   max-width: 90vw;
   line-height: 1.4;
   text-align: left;
   box-sizing: border-box;
   transition: opacity 0.2s ease;
   pointer-events: none;
-  word-break: normal;
+  word-break: break-word;
   z-index: 10;
 }
 
 @media (max-width: 600px) {
   .tooltip {
-    font-size: 20px; /* bigger for mobile */
+    font-size: 20px; /* larger on mobile */
   }
 }
-
 
   </style>
 </head>
