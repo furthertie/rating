@@ -90,22 +90,29 @@
   color: #f0f0f0;
   padding: 0.6rem 1rem;
   border-radius: 6px;
-  font-size: 16px; /* default desktop */
+  font-size: clamp(16px, 4vw, 20px); /* bigger and responsive */
   opacity: 0;
-  white-space: normal;
-  max-width: 90vw;
+  white-space: nowrap;  /* keep it on one line if possible */
+  max-width: 90vw;      /* but don’t let it go off screen on small devices */
   line-height: 1.4;
   text-align: left;
   box-sizing: border-box;
   transition: opacity 0.2s ease;
   pointer-events: none;
-  word-break: break-word;
+  word-break: normal; /* prevent breaking words */
   z-index: 10;
 }
 
-@media (max-width: 600px) {
-  .tooltip {
-    font-size: 20px; /* larger on mobile */
+
+
+.hover-zone:hover .tooltip {
+  opacity: 1;
+}
+
+@media (min-width: 601px) {
+  .star-container {
+    font-size: 96px;
+    max-width: none;
   }
 }
 
